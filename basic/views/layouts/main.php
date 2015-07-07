@@ -36,8 +36,6 @@ AppAsset::register($this);
             $navItems = [
                 ['label' => 'Home',
                     'url' => [ 'site/index']],
-                ['label' => 'Status',
-                    'url' => [ 'status/index']],
                 ['label' => 'About',
                     'url' => [ 'site/about']],
                 ['label' => 'Contact',
@@ -47,14 +45,12 @@ AppAsset::register($this);
                 array_push(
                     $navItems,
                     ['label' => 'Sign In',
-                        'url' => ['/user/login']],
-                    ['label' => 'Sign Up',
-                        'url' => ['/user/register']]
+                        'url' => ['/site/login']]
                 );
             } else {
                 array_push(
                     $navItems,
-                    ['label' => 'Logout (' . Yii::$app->user->identity->username . ')',
+                    ['label' => 'Logout (' . Yii::$app->user->identity->name . ')',
                         'url' => ['/site/logout'],
                         'linkOptions' => [
                             'data-method' => 'post'

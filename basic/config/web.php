@@ -21,6 +21,14 @@ $config = [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
+        'user' => [
+            'identityClass' => 'app\models\User',
+            'loginUrl' => ['site/login'],
+            'enableAutoLogin' => true,
+        ],
+        'session' => [
+            'class' => 'yii\web\DbSession'
+        ],
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
@@ -47,12 +55,6 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
-    ],
-    'modules' => [
-        'user' => [
-            'class' => 'dektrium\user\Module',
-            'admins' => ['gurth']
-        ],
     ],
     'params' => $params,
 ];
