@@ -32,4 +32,7 @@ CREATE TABLE `user` (
   UNIQUE KEY `user_unique_email` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+INSERT INTO `user` (`id`, `created_at`, `created_by`, `lock_version`, `updated_at`, `updated_by`, `enabled`, `name`, `email`, `password_hash`, `auth_key`, `last_seen`, `last_ip`, `unconfirmed_email`, `confirmed_at`, `roles`)
+VALUES
+  (12, 1436709050, NULL, 0, 1436709050, NULL, 1, 'Tapvolt', 'admin@tapvolt.com', '$2y$13$4KlFZSyaDGGxchm.D6xel.yGU95jl1Kc6FDY1r/MK/vkOukfUtMNO', '5Z2EED0SN6-XKtbIpoXNlE29N0WGfrOz', NULL, '192.168.56.1', NULL, NULL, 0);
 

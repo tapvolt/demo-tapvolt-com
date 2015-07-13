@@ -46,7 +46,7 @@ class Password
      *
      * @return string
      */
-    public static function generate($length = PASSWORD_LENGTH)
+    public static function generate($length = self::PASSWORD_LENGTH)
     {
         $sets = [
             'abcdefghjkmnpqrstuvwxyz',

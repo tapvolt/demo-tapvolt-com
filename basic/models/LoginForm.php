@@ -24,21 +24,10 @@ class LoginForm extends Model
                 ['login', 'password'],
                 'required'
             ],
-            'loginTrim' => [
-                'login',
-                'trim'
-            ],
-            'passwordValidate' => [
-                'password',
-                'validatePassword'
-            ],
-            'confirmationValidate' => [
-                'login',
-                'validateConfirmation'
-            ],
-            'rememberMe' => [
-                'rememberMe', 'boolean'
-            ],
+            'loginTrim' => ['login', 'trim'],
+            'passwordValidate' => ['password', 'validatePassword'],
+            'confirmationValidate' => ['login', 'validateConfirmation'],
+            'rememberMe' => ['rememberMe', 'boolean'],
         ];
     }
 
@@ -55,6 +44,7 @@ class LoginForm extends Model
     public function validatePassword()
     {
         if ($this->_user === null || !Password::validate($this->password, $this->_user->password_hash)) {
+            Yii::$app->getSession()->setFlash('danger', 'Invalid login or password');
             $this->addError($this->password, 'Invalid login or password');
         }
     }

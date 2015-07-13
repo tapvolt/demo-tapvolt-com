@@ -3,6 +3,7 @@ use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
+use app\models\helpers\SystemAlert;
 use app\assets\AppAsset;
 
 /* @var $this \yii\web\View */
@@ -33,14 +34,7 @@ AppAsset::register($this);
                 ],
             ]);
 
-            $navItems = [
-                ['label' => 'Home',
-                    'url' => [ 'site/index']],
-                ['label' => 'About',
-                    'url' => [ 'site/about']],
-                ['label' => 'Contact',
-                    'url' => [ 'site/contact']],
-            ];
+            $navItems = [];
             if (Yii::$app->user->isGuest) {
                 array_push(
                     $navItems,
@@ -67,7 +61,12 @@ AppAsset::register($this);
         <div class="container">
             <?= Breadcrumbs::widget([
                 'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-            ]) ?>
+            ]);
+
+            SystemAlert::show();
+
+            ?>
+
             <?= $content ?>
         </div>
     </div>
