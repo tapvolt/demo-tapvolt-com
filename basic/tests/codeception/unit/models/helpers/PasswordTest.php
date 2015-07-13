@@ -4,7 +4,7 @@ namespace tests\codeception\unit\models;
 
 use Yii;
 use yii\codeception\TestCase;
-use app\models\helpers\Password;
+use app\models\Helpers\Password;
 
 class PasswordTest extends TestCase
 {
