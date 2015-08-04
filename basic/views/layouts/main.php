@@ -1,9 +1,8 @@
 <?php
 use yii\helpers\Html;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
-use app\models\helpers\SystemAlert;
+use app\models\Helpers\SystemAlert;
+use app\models\Navigation\MenuManager;
 use app\assets\AppAsset;
 
 /* @var $this \yii\web\View */
@@ -25,38 +24,8 @@ AppAsset::register($this);
 
 <?php $this->beginBody() ?>
     <div class="wrap">
-        <?php
-            NavBar::begin([
-                'brandLabel' => 'My Company',
-                'brandUrl' => Yii::$app->homeUrl,
-                'options' => [
-                    'class' => 'navbar-inverse navbar-fixed-top',
-                ],
-            ]);
 
-            $navItems = [];
-            if (Yii::$app->user->isGuest) {
-                array_push(
-                    $navItems,
-                    ['label' => 'Sign In',
-                        'url' => ['/site/login']]
-                );
-            } else {
-                array_push(
-                    $navItems,
-                    ['label' => 'Logout (' . Yii::$app->user->identity->name . ')',
-                        'url' => ['/site/logout'],
-                        'linkOptions' => [
-                            'data-method' => 'post'
-                        ]]
-                );
-            }
-            echo Nav::widget([
-                'options' => ['class' => 'navbar-nav navbar-right'],
-                'items' => $navItems,
-            ]);
-            NavBar::end();
-        ?>
+        <?php MenuManager::getMenu()->mainMenu(); ?>
 
         <div class="container">
             <?= Breadcrumbs::widget([
