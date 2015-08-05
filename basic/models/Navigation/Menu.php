@@ -33,13 +33,12 @@ class Menu extends NavBar {
         } else {
             array_push($this->menuItems, ['label' => 'Admin', 'items' => [
                 ['label' => 'User', 'url' => ['/user/']],
+                $this->getDivider(),
                 ['label' => 'Client', 'url' => ['/client/']],
                 ['label' => 'Project', 'url' => ['/project/']]
             ]]);
             array_push($this->menuItems, ['label' => 'System', 'items' => [
-                ['label' => 'User', 'url' => ['/user/']],
-                ['label' => 'Client', 'url' => ['/client/']],
-                ['label' => 'Project', 'url' => ['/project/']]
+                ['label' => 'ToDo', 'url' => ['#']]
             ]]);
             array_push($this->menuItems, ['label' => 'Logout (' . \Yii::$app->user->identity->name . ')', 'url' => ['/site/logout'], 'linkOptions' => ['data-method' => 'post']]);
 
@@ -63,6 +62,11 @@ class Menu extends NavBar {
     public function getMenus()
     {
         return $this->menuItems;
+    }
+
+    public function getDivider()
+    {
+        return '<li class="divider"></li>';
     }
 
 
