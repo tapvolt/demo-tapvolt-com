@@ -39,8 +39,8 @@ $config = [
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
                 'host' => 'email-smtp.eu-west-1.amazonaws.com',
-                'username' => 'AKIAI7OYP6XMBWXALTXQ',
-                'password' => 'AnfLIjsU/5gJTTtp0geIJ4TEdbmotrv1oPqIpA0yG+Bu',
+                'username' => 'key',
+                'password' => 'secret',
                 'port' => '587',
                 'encryption' => 'tls',
             ],
